@@ -1,0 +1,14 @@
+version: '2'
+services:
+  api:
+    build: .
+    command: npm run start
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    ports:
+      - "8000:8000"
+    environment:
+      D_TRACE_AGENT_URL: http://localhost:8360
+      DD_TRACE_GLOBAL_TAGS: "lightstep.service_name:poc_lighstep_logs,lightstep.access_token:developer"
+      LS_ACCESS_TOKEN: "TabqK30ULx3PCt+V7SpTylalAYU019crjqPR85NgfKjoAhnsok7euTmAwIYsjzsvC/VKMO4JK2MV8hTMkv6zxlCX7cdxKDv3Oo1C2q5v"
